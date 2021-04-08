@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # The Root URL
   root 'pages#index'
 
