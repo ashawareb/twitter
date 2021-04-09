@@ -18,10 +18,10 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= current_user.email %>
+          <%= current_user.username %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/profile">Profile</a>
+          <a class="dropdown-item" href="/user/:id">Profile</a>
           <a class="dropdown-item" href="#">Help</a>
           <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
           <hr>
