@@ -21,7 +21,7 @@
           <%= current_user.username %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/user/:id">Profile</a>
+          <a class="dropdown-item" href="/user/<%= current_user.username %>">Profile</a>
           <a class="dropdown-item" href="#">Help</a>
           <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
           <hr>
