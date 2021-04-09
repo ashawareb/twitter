@@ -11,22 +11,24 @@
       <div class="card-body">Profile</div>
     </div>
   </div>
+
   <div class="col-6">
-    <div class="card">
-      <div class="card-body">Tweets</div>
-    </div>
+    <% @posts.each do |post| %>
+      <div class="card">
+        <div class="card-body">
+          <%= post.content %>
+        </div>
+      </div>
+    <% end %>
   </div>
+
   <div class="col-3">
     <div class="card">
       <div class="card-body">Who to follow</div>
     </div>
-  </div>
-</div>
-
-<div class="row" style="margin-top: 10px">
-  <div class="col-3 offset-md-9">
     <div class="card">
       <div class="card-body">trends</div>
     </div>
   </div>
 </div>
+

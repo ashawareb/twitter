@@ -3,23 +3,22 @@
     <div class="card">
       <div class="card-body">stats</div>
     </div>
+    <div class="card">
+      <div class="card-body">trends</div>
+    </div>
   </div>
   <div class="col-6">
-    <div class="card">
-      <div class="card-body">feed</div>
-    </div>
+    <% @posts.each do |post| %>
+      <div class="card">
+        <div class="card-body">
+          <%= post.content %>
+        </div>
+      </div>
+    <% end %>
   </div>
   <div class="col-3">
     <div class="card">
       <div class="card-body">about</div>
-    </div>
-  </div>
-</div>
-
-<div class="row" style="margin-top: 10px">
-  <div class="col-3">
-    <div class="card">
-      <div class="card-body">trends</div>
     </div>
   </div>
 </div>
