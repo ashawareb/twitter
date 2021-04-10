@@ -8,12 +8,17 @@
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <style>
+      body {
+          background-color: #F5F8FA;
+      }
+  </style>
 </head>
 
 <body>
-<%= render 'layouts/navigation' %>
-<%= render 'layouts/messages' %>
 <div class="container">
+  <%= render 'layouts/navigation' %>
+  <%= render 'layouts/messages' %>
   <span class="notice"><%= notice %></span>
   <span class="alert"><%= alert %></span>
   <%= yield %>
