@@ -1,0 +1,10 @@
+<%= form_for @new_post do |f| %>
+  <center>
+    <div class="field">
+      <%= f.text_area :content, autofocus: true, placeholder: "What's in yor mind" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Tweet" %>
+    </div>
+  </center>
+<% end %>
