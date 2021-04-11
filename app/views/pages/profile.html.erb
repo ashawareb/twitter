@@ -37,11 +37,11 @@
       <div class="row" style="font-weight: bolder; margin-left: 10px">
         <p class="col-3" style="font-size: large">
           Tweets
-          <br><span style="color: #1DA1F2">16</span>
+          <br><span style="color: #1DA1F2"><%= User.find_by_username(params[:id]).posts.count %></span>
         </p>
         <p class="col-7" style="font-size: large">
-          Following
-          <br><span style="color: #1DA1F2">95</span>
+          Followers
+          <br><span style="color: #1DA1F2"><%= User.find_by_username(params[:id]).followers.count %></span>
         </p>
       </div>
     </div>
@@ -96,10 +96,10 @@
         <a href="#">Trend 2</a><br>
         <small>29k tweet</small>
         <hr>
-        <a href="#">Trend 1</a><br>
+        <a href="#">Trend 3</a><br>
         <small>20k tweet</small>
         <hr>
-        <a href="#">Trend 1</a><br>
+        <a href="#">Trend 4</a><br>
         <small>16k tweet</small>
       </div>
     </div>
