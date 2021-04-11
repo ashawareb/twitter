@@ -13,6 +13,11 @@
         background-color: #1DA1F2;
         border-radius: 50px;
     }
+
+    .follow-btn {
+        background-color: #1DA1F2;
+        border-radius: 50px;
+    }
 </style>
 <div class="row" style="margin-top: 10px">
   <div class="col-12">
@@ -22,16 +27,19 @@
       </div>
     </div>
     <br><br>
-    <div class="avatar" style="margin-left: 20px; color:#657786;">
-      <h1 style="font-weight: bolder">@<%= @username %></h1>
+    <div class="avatar row" style="margin-left: 20px; color:#657786;">
+      <h3 class="col-10" style="font-weight: bolder">@<%= @username %></h3>
+      <div class="following" style="margin-left: 20px">
+        <%= render 'components/follow_button', :user => User.find_by_username(params[:id]) %>
+      </div>
     </div>
     <div class="stats">
       <div class="row" style="font-weight: bolder; margin-left: 10px">
-        <p class="col-3" style="font-size: x-large">
+        <p class="col-3" style="font-size: large">
           Tweets
           <br><span style="color: #1DA1F2">16</span>
         </p>
-        <p class="col-7" style="font-size: x-large">
+        <p class="col-7" style="font-size: large">
           Following
           <br><span style="color: #1DA1F2">95</span>
         </p>
@@ -42,14 +50,6 @@
 <br>
 <div class="row">
   <div class="col-9">
-    <div class="card">
-      <div class="card-body row">
-        <img src="/user.png" style="height: 40px; width: 40px; border-radius: 50px; margin-left: 15px">
-        <span style="margin-left: 5%;"><%= render 'components/tweet' %></span>
-      </div>
-      <br/>
-    </div>
-    <br>
     <% @posts.each do |post| %>
       <div class="card tweet-card">
         <div class="card-body row">
