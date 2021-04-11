@@ -1,3 +1,4 @@
+<script src="https://kit.fontawesome.com/3d50ad1843.js" crossorigin="anonymous"></script>
 <style>
     .tweet-card {
 
@@ -15,19 +16,32 @@
 </style>
 <div class="row" style="margin-top: 10px">
   <div class="col-12">
-    <div class="jumbotron">
-      <%= @username %>
+    <div class="jumbotron" style="background-color: #1DA1F2;height: 300px">
+      <div style="margin-top: 100px;">
+        <img src="/user.png" style="width: 200px;height: 200px;border-radius: 100px">
+      </div>
+    </div>
+    <br><br>
+    <div class="avatar" style="margin-left: 20px; color:#657786;">
+      <h1 style="font-weight: bolder">@<%= @username %></h1>
+    </div>
+    <div class="stats">
+      <div class="row" style="font-weight: bolder; margin-left: 10px">
+        <p class="col-3" style="font-size: x-large">
+          Tweets
+          <br><span style="color: #1DA1F2">16</span>
+        </p>
+        <p class="col-7" style="font-size: x-large">
+          Following
+          <br><span style="color: #1DA1F2">95</span>
+        </p>
+      </div>
     </div>
   </div>
 </div>
+<br>
 <div class="row">
-  <div class="col-3">
-    <div class="card">
-      <div class="card-body">Profile</div>
-    </div>
-  </div>
-
-  <div class="col-6">
+  <div class="col-9">
     <div class="card">
       <div class="card-body row">
         <img src="/user.png" style="height: 40px; width: 40px; border-radius: 50px; margin-left: 15px">
@@ -35,10 +49,28 @@
       </div>
       <br/>
     </div>
+    <br>
     <% @posts.each do |post| %>
-      <div class="card">
-        <div class="card-body">
-          <%= post.content %>
+      <div class="card tweet-card">
+        <div class="card-body row">
+          <div class="col-8" style="color: #1DA1F2; font-weight: bolder">
+            <img src="/user.png" style="height: 40px; width: 40px; border-radius: 50px">
+            <a href="/user/<%= post.user.username %>">
+              <%= post.user.username %> .
+            </a>
+            <small style="font-weight: lighter; color: #657786">
+              <%= time_ago_in_words(post.created_at) %>
+            </small>
+          </div>
+          <div class="col-10" style="margin-top: 10px;">
+            <%= post.content %><br/><br/>
+            <div class="icons col-12 container" style="color: #657786">
+              <span style="font-size: larger; margin-right: 20%; margin-left: 10%"><i class="far fa-comment"></i></span>
+              <span style="font-size: larger; margin-right: 20%"><i class="fas fa-retweet"></i></span>
+              <span style="font-size: larger; margin-right: 20%"><i class="far fa-heart"></i></span>
+              <span style="font-size: larger"><i class="fas fa-external-link-alt"></i></span>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
@@ -46,10 +78,30 @@
 
   <div class="col-3">
     <div class="card">
-      <div class="card-body">Who to follow</div>
+      <div class="card-body">
+        <h4 style="font-weight: bolder">Who to follow</h4>
+        <hr>
+        <% @users.each do |user| %>
+          <a href="/user/<%= user.username %>" style="font-weight: bolder;font-size: larger"><%= user.username %></a>
+          <br>
+        <% end %>
+      </div>
     </div>
+    <br>
     <div class="card">
-      <div class="card-body">trends</div>
+      <div class="card-body">
+        <a href="#">Trend 1</a><br>
+        <small>31k tweet</small>
+        <hr>
+        <a href="#">Trend 2</a><br>
+        <small>29k tweet</small>
+        <hr>
+        <a href="#">Trend 1</a><br>
+        <small>20k tweet</small>
+        <hr>
+        <a href="#">Trend 1</a><br>
+        <small>16k tweet</small>
+      </div>
     </div>
   </div>
 </div>
