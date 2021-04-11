@@ -1,9 +1,67 @@
-<div class="col-6">
-  <% @posts.each do |post| %>
+<script src="https://kit.fontawesome.com/3d50ad1843.js" crossorigin="anonymous"></script>
+<style>
+    .tweet-card {
+
+    }
+
+    .tweet {
+        width: 200%;
+        border-style: none;
+    }
+
+    .tweet-btn {
+        background-color: #1DA1F2;
+        border-radius: 50px;
+    }
+</style>
+<div class="row" style="margin-top: 10px">
+  <div class="col-8">
+    <% @posts.each do |post| %>
+      <div class="card tweet-card">
+        <div class="card-body row">
+          <div class="col-8" style="color: #1DA1F2; font-weight: bolder">
+            <img src="/user.png" style="height: 40px; width: 40px; border-radius: 50px">
+            <a href="/user/<%= post.user.username %>">
+              <%= post.user.username %> .
+            </a>
+            <small style="font-weight: lighter; color: #657786">
+              <%= time_ago_in_words(post.created_at) %>
+            </small>
+          </div>
+          <div class="col-10" style="margin-top: 10px;">
+            <%= post.content %><br/><br/>
+            <div class="icons col-12 container" style="color: #657786">
+              <span style="font-size: larger; margin-right: 20%; margin-left: 10%"><i class="far fa-comment"></i></span>
+              <span style="font-size: larger; margin-right: 20%"><i class="fas fa-retweet"></i></span>
+              <span style="font-size: larger; margin-right: 20%"><i class="far fa-heart"></i></span>
+              <span style="font-size: larger"><i class="fas fa-external-link-alt"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-4">
     <div class="card">
       <div class="card-body">
-        <%= post.content %>
+        <p style="color:#657786 ">Terms of Service Privacy Policy Cookie Policy Ads info More © 2021 Twitter, Inc.</p>
       </div>
     </div>
-  <% end %>
+    <br>
+    <div class="card">
+      <div class="card-body">
+        <a href="#">Trend 1</a><br>
+        <small>31k tweet</small>
+        <hr>
+        <a href="#">Trend 2</a><br>
+        <small>29k tweet</small>
+        <hr>
+        <a href="#">Trend 1</a><br>
+        <small>20k tweet</small>
+        <hr>
+        <a href="#">Trend 1</a><br>
+        <small>16k tweet</small>
+      </div>
+    </div>
+  </div>
 </div>
