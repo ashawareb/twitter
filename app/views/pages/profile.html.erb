@@ -1,3 +1,18 @@
+<style>
+    .tweet-card {
+
+    }
+
+    .tweet {
+        width: 200%;
+        border-style: none;
+    }
+
+    .tweet-btn {
+        background-color: #1DA1F2;
+        border-radius: 50px;
+    }
+</style>
 <div class="row" style="margin-top: 10px">
   <div class="col-12">
     <div class="jumbotron">
@@ -13,7 +28,13 @@
   </div>
 
   <div class="col-6">
-    <%= render 'components/tweet' %>
+    <div class="card">
+      <div class="card-body row">
+        <img src="/user.png" style="height: 40px; width: 40px; border-radius: 50px; margin-left: 15px">
+        <span style="margin-left: 5%;"><%= render 'components/tweet' %></span>
+      </div>
+      <br/>
+    </div>
     <% @posts.each do |post| %>
       <div class="card">
         <div class="card-body">

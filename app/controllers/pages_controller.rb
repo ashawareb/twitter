@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   # back-end code for pages/home
   def home
     @posts = Post.all
+    @new_post = Post.new
   end
 
   # back-end code for pages/profile

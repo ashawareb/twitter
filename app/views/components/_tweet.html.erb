@@ -1,10 +1,9 @@
 <%= form_for @new_post do |f| %>
-  <center>
-    <div class="field">
-      <%= f.text_area :content, autofocus: true, placeholder: "What's in yor mind" %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Tweet" %>
-    </div>
-  </center>
+  <div class="field">
+    <%= f.text_area :content, class: "tweet", autofocus: true, placeholder: "What's happening?" %>
+  </div>
+  <hr/>
+  <div class="actions">
+    <%= f.submit "Tweet", class: "tweet-btn btn btn-primary" %>
+  </div>
 <% end %>

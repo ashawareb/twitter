@@ -1,2 +1,78 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<% if !user_signed_in? %>
+  <style>
+      body {
+          background: linear-gradient(
+                  rgba(0, 0, 0, 0.4),
+                  rgba(0, 0, 0, 0.4)
+          ), url("/pexels-stephan-seeber-1054218.jpg") no-repeat center center fixed;
+          color: white;
+          font-weight: bolder;
+      }
+
+      .log-in {
+          float: right;
+          width: 300px;
+          height: fit-content;
+          color: #2E2F30;
+      }
+
+      .sign-up {
+          float: right;
+          width: 300px;
+          height: fit-content;
+          margin-top: 10px;
+          color: #2E2F30;
+      }
+  </style>
+  <div class="container row">
+    <div class="col-8">
+      <h1 style="font-weight: bolder">Welcome to Twitter.</h1>
+      <h3 style="font-weight: bolder">See what’s happening in the world right now.</h3>
+      <h5 style="font-weight: bolder">
+        Follow your interests.<br/>
+        Hear what people are talking about.<br/>
+        Join the conversation. <br/>
+      </h5>
+    </div>
+
+    <div class="col-4">
+      <div class="log-in card">
+        <div class="card-header">Log in</div>
+        <div class="card-body">
+          <%= form_for(:user, :url => session_path(:user)) do |f| %>
+            <%= f.text_field :email, placeholder: "Phone, email, or username", style: "border-radius:5px" %><br/>
+            <%= f.password_field :password, placeholder: "Password", style: "margin-top:5px; border-radius:5px" %><br/>
+            <%= f.submit 'Sign in', class: "btn btn-primary", style: "margin-top:5px" %> <br/>
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %><br/>
+            <%= link_to "Forgot your password?", new_password_path(:user), style: "margin-top:-3px" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="sign-up card">
+        <div class="card-header">New to Twitter? Sign up</div>
+        <div class="card-body">
+          <%= form_for(:user, url: registration_path(:user)) do |f| %>
+            <%= f.email_field :email, placeholder: "Email", style: "border-radius:5px" %><br/>
+            <%= f.text_field :username, placeholder: "Username", style: "border-radius:5px; margin-top:5px;" %>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Password", style: "border-radius:5px; margin-top:5px;" %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm password", style: "border-radius:5px; margin-top:5px;" %>
+            <%= f.submit "Sign up", class: "btn btn-primary", style: "margin-top:5px;" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <p class="card-footer" style="background: none">
+      Copyright &copy;
+      <a href="https://github.com/AbdUlRahmanShawareb" style="color: white; text-decoration: none">
+        AbdUlRahman Shawareb 2021
+      </a>
+    </p>
+  </div>
+<% else %>
+  Signed in
+  <script> document.location = "/home"</script>
+<% end %>
