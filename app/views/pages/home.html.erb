@@ -17,10 +17,46 @@
 <div class="row" style="margin-top: 10px">
   <div class="col-3">
     <div class="card">
-      <div class="card-body">stats</div>
+      <div class="card-body">
+        <div class="card-header jumbotron" style="background-color: #1DA1F2">
+          <img src="/user.png" style="width: 80px;height: 80px; float: left; margin-left: -20px; margin-top: 30px; border-radius: 50px">
+          <!--<a href="/user/<%#= current_user.username %>">
+            <%#= current_user.username %> .
+          </a>-->
+        </div>
+        <div class="card-body">
+          <a href="/user/<%= current_user.username %>" style="font-size: larger; color: #657786">
+            @<%= current_user.username %>
+          </a>
+          <br>
+          <div class="row" style="font-weight: bolder">
+            <p class="col-5">
+              Tweets
+              <br><span style="color: #1DA1F2">16</span>
+            </p>
+            <p class="col-7">
+              Following
+              <br><span style="color: #1DA1F2">95</span>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+    <br>
     <div class="card">
-      <div class="card-body">trends</div>
+      <div class="card-body">
+        <a href="#">Trend 1</a><br>
+        <small>31k tweet</small>
+        <hr>
+        <a href="#">Trend 2</a><br>
+        <small>29k tweet</small>
+        <hr>
+        <a href="#">Trend 1</a><br>
+        <small>20k tweet</small>
+        <hr>
+        <a href="#">Trend 1</a><br>
+        <small>16k tweet</small>
+      </div>
     </div>
   </div>
   <div class="col-6">
@@ -58,7 +94,9 @@
   </div>
   <div class="col-3">
     <div class="card">
-      <div class="card-body">about</div>
+      <div class="card-body">
+        <p style="color:#657786 ">Terms of Service Privacy Policy Cookie Policy Ads info More © 2021 Twitter, Inc.</p>
+      </div>
     </div>
   </div>
 </div>
