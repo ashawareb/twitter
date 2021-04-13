@@ -23,6 +23,11 @@
           margin-top: 10px;
           color: #2E2F30;
       }
+
+      .btn {
+          background-color: #1DA1F2;
+          border-radius: 50px;
+      }
   </style>
   <div class="container row">
     <div class="col-8">
@@ -40,11 +45,11 @@
         <div class="card-header">Log in</div>
         <div class="card-body">
           <%= form_for(:user, :url => session_path(:user)) do |f| %>
-            <%= f.text_field :email, placeholder: "Phone, email, or username", style: "border-radius:5px" %><br/>
-            <%= f.password_field :password, placeholder: "Password", style: "margin-top:5px; border-radius:5px" %><br/>
+            <%= f.text_field :email, placeholder: "Phone, email, or username", style: "", class: "form-control" %>
+            <%= f.password_field :password, placeholder: "Password", style: "margin-top:5px;", class: "form-control" %>
             <%= f.submit 'Sign in', class: "btn btn-primary", style: "margin-top:5px" %> <br/>
             <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %><br/>
+            <%= f.label :remember_me, style: "margin-top:5px" %><br/>
             <%= link_to "Forgot your password?", new_password_path(:user), style: "margin-top:-3px" %>
           <% end %>
         </div>
@@ -53,13 +58,13 @@
         <div class="card-header">New to Twitter? Sign up</div>
         <div class="card-body">
           <%= form_for(:user, url: registration_path(:user)) do |f| %>
-            <%= f.email_field :email, placeholder: "Email", style: "border-radius:5px" %><br/>
-            <%= f.text_field :username, placeholder: "Username", style: "border-radius:5px; margin-top:5px;" %>
+            <%= f.email_field :email, placeholder: "Email", style: "", class: "form-control" %>
+            <%= f.text_field :username, placeholder: "Username", style: "margin-top:5px;", class: "form-control" %>
             <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %>
-            <%= f.password_field :password, autocomplete: "off", placeholder: "Password", style: "border-radius:5px; margin-top:5px;" %>
-            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm password", style: "border-radius:5px; margin-top:5px;" %>
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Password", style: "margin-top:5px;", class: "form-control" %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm password", style: "margin-top:5px;", class: "form-control" %>
             <%= f.submit "Sign up", class: "btn btn-primary", style: "margin-top:5px;" %>
           <% end %>
         </div>
@@ -67,7 +72,7 @@
     </div>
     <p class="card-footer" style="background: none">
       Copyright &copy;
-      <a href="https://github.com/AbdUlRahmanShawareb" style="color: white; text-decoration: none">
+      <a href="https://github.com/ashawareb" style="color: white; text-decoration: none">
         AbdUlRahman Shawareb 2021
       </a>
     </p>
